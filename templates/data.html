@@ -1,0 +1,202 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+
+
+        
+        <div style="text-align: center; width: 1100px; height: 500px; margin-top: 150px; margin-left: 15%; border-style: outset;" >
+            <div style="width: 800px; height: 500px; ">
+                <h3 style="margin-left:23%; margin-top: 15px;"><b>Veri Seti Özellikleri</b></h3>
+                <br>
+                <div style="margin-left:20%;">
+                    <label class="btn btn-warning" style="width: 500px; height: 40px;">
+                        <b>{{file}}</b>   verisetinde {{sutun}} sütun ve {{satir}} satır bulunmaktadır.
+                    </label>
+                    
+                </div><br>
+                <h5 style="margin-left: 25%;"><b>Çalıştırmak istediğiniz kodu seçiniz.</b></h5>
+                <div style="width: 800px; height: 100px; margin-left: 130px;" id="describe" name="describe">
+                    <br><br>&nbsp;&nbsp;&nbsp;
+                    <div style="float: left;" data-toggle="modal" data-target="#portfoliodescribe" >
+                        <button style="width: 150px;" class="btn btn-primary">Ölçüler</button>
+                    </div>
+                    <div style="width: 150px; float: left; margin-left: 20px;" data-toggle="modal" data-target="#portfolioinfo">
+                        <button style="width: 150px;"  class="btn btn-primary">Eksik Veri</button>
+                    </div>
+                    <div style="width: 150px; float: left; margin-left: 20px;" data-toggle="modal" data-target="#portfoliooutlier">
+                        
+                        <button style="width: 150px;"  class="btn btn-primary">Aykırı Veri</button>
+                     
+                       
+                    </div>
+                    <div  style="width: 150px; float: left; margin-left: 20px;" data-toggle="modal" data-target="#portfoliocorr">
+                        <button style="width: 150px;" class="btn btn-primary">Korelasyon</button>
+                    </div>
+                    
+                    
+                    
+
+                    
+                </div>
+                <div>
+                    <form action="/data" method="POST">
+                        <button type="submit" name="form2" style="float: right; margin-top: 70px; width: 100px;" class="btn btn-success"><b>Devam</b></button>
+                    </form>
+                    
+                </div>
+               
+                
+           
+           
+            
+            </div>
+            
+        
+        </div>
+
+      <!----------PortfolioDescribe---------->
+      <div class="portfolio-modal modal fade" id="portfoliodescribe" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4">
+                               
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-0">
+                                    {% for table in tables %}
+                    
+                                    {{ table|safe }}
+                                    {% endfor %}
+                                </p><br><br>
+                                <button style="margin-left: 50px;" class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Kapat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+      <!----------PortfolioInfo---------->
+      <div class="portfolio-modal modal fade" id="portfolioinfo" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-2">
+                               
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-0">
+                                    {% for table in tablestwo %}
+                    
+                                    {{ table|safe }}
+                                    {% endfor %}
+                                </p><br><br>
+                                
+                            </div>
+                        </div>
+                        
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+     <!----------PortfolioCorr---------->
+     <div class="portfolio-modal modal fade" id="portfoliocorr" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div   class="">
+                               
+                                <!-- Portfolio Modal - Text-->
+                                <p  class="">
+                                    {% for table in tablesthree %}
+                    
+                                    {{ table|safe }}
+                                    {% endfor %}
+                                </p><br><br>
+                                
+                            </div>
+                        </div>
+                        <button style="margin-left: 50px;" class="btn btn-primary" data-dismiss="modal">
+                            <i class="fas fa-times fa-fw"></i>
+                            Kapat
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!----------PortfolioOutlier---------->
+     <div class="portfolio-modal modal fade" id="portfoliooutlier" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div  style="margin-left: 20%;" class="row">
+                            <div class="col-lg-2">
+                               
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-0">
+                                                                   
+                             
+                                    <img style="margin-left:5%;" src="{{html}}" width="550"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    
+                                </p><br><br>
+                                
+                            </div>
+                            
+                        </div>
+                        <button style="margin-left: 50px; width: 200px;" class="btn btn-primary" data-dismiss="modal">
+                                   
+                            Aykırı verileri temizle
+                        </button>
+                        <button style="margin-left: 50px; width: 200px;" class="btn btn-primary" data-dismiss="modal">
+                                   
+                            Aykırı verileri baskıla
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+       <div style="height: 10px;"></div>
+      
+
+       
+       
+        
+         
+    </body>
+</html>
+{{describe}}
+{% endblock body %}

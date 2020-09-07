@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div style="text-align: center; width: 1100px; height: 550px; margin-top: 150px; margin-left: 15%; border-style: outset;" >
+    <div style="width: 800px; height: 500px; ">
+        <h3 style="margin-left:23%; margin-top: 15px;"><b>Son Ayarlar</b></h3>
+        <br>
+        <div style="margin-left:20%;">
+            <label class="btn btn-warning" style="width: 500px; height: 40px;">
+               Kuralları belirleyiniz.
+            </label>
+            <form action="/data" method="POST">
+                <label style="margin-top: 50px;" for="features"><b>Bağlımlı değişken seçiniz.</b></label>
+            
+            <select class="custom-select" style="width:200px;" name="features" id="features">
+                {% for o in option_list %}
+
+                <option id="{{o}}"  name="{{o}}" value="{{o}}"><b>{{o}}</b></option>
+                   
+                {% endfor %}
+                
+               
+            </select><br>
+            <label style="margin-top: 50px;" for="test"><b>Test veri setinin yüzdesini yazınız:  </b></label>
+            <input class="form-container" type="text" name="testt" id="testt"><br>
+            
+            <label style="margin-top: 50px;" for="algorithms"><b>Algoritma seçiniz:  </b></label>
+            <select class="custom-select" style="width:200px;" name="algorithms" id="algorithms">
+                
+
+                <option id="linear"  name="linear" value="linear"><b>Linear Regression</b></option>
+                <option id="plynomial"  name="plynomial" value="plynomial"><b>Polynomial Regression</b></option>
+                <option id="svr"  name="svr" value="svr"><b>SVR</b></option>
+                <option id="dt"  name="dt" value="dt"><b>Decision Tree</b></option>
+                <option id="rf"  name="rf" value="rf"><b>Random Forest</b></option>
+                <option id="knn"  name="knn" value="knn"><b>K-NN</b></option>
+                <option id="logistic"  name="logistic" value="logistic"><b>Logistic Regression</b></option>
+                <option id="svm"  name="svm" value="svm"><b>SVC</b></option>
+                <option id="naive"  name="naive" value="naive"><b>Naive Bayes</b></option>
+                <option id="knn"  name="k-means" value="k-means"><b>K-Means</b></option>
+
+                   
+                
+                
+               
+            </select>
+        </div>
+        
+        <div style="width: 800px; height: 100px; margin-left: 130px;" id="describe" name="describe">
+            <br>&nbsp;&nbsp;&nbsp;
+         
+            <div class="clear"></div>
+            
+                <button type="submit" name="datastepthree" style="margin-top: 0px; width: 100px;" class="btn btn-warning"><b>Onayla</b></button>
+          
+            
+           
+        </div>
+            
+            
+            
+            </form>
+
+                
+        <div class="clear"></div>
+        <form action="/data" method="POST">
+            <button type="submit" name="datastepfour" style="float:right; width: 100px;" class="btn btn-success"><b>Devam</b></button>
+        </form>
+        
+        
+    </div>
+    
+   
+</div>
+<div style="height: 10px;"></div>
+
+{% endblock body %}
